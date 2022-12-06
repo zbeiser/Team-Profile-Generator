@@ -5,6 +5,8 @@ const Manager = require('./lib/Manager')
 const Engineer = require('./lib/Engineer')
 const Intern = require('./lib/Intern')
 
+const teamMembersArray = [];
+
 const managerQuestions = [
   {
     name: 'managerName',
@@ -106,7 +108,8 @@ function addEngineer() {
         answers.engineerID,
         answers.engineerEmail,
         answers.github,
-      )
+      );
+      teamMembersArray.push(engineer);
     })
     .then(answers => {
       addMember();
@@ -122,7 +125,8 @@ function addIntern() {
       answers.internID,
       answers.internEmail,
       answers.school,
-    )
+    );
+    teamMembersArray.push(intern);
   })
   .then(answers => {
     addMember();
@@ -139,6 +143,7 @@ function init() {
         answers.managerEmail,
         answers.officeNumber,
       );
+      teamMembersArray.push(manager);
     })
     .then(answers => {
       addMember();

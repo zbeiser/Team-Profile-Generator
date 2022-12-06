@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const genereateHTML = require('./src/generateHTML');
+const generateHTML = require('./src/generateHTML');
 const Manager = require('./lib/Manager')
 const Engineer = require('./lib/Engineer')
 const Intern = require('./lib/Intern')
@@ -94,7 +94,7 @@ function addMember() {
       } else if (answers.addMember === 'Intern') {
         addIntern();
       } else {
-        //generate the HTML
+        writeToFile('index.HTML', generateHTML(teamMembersArray));
       }
     })
 }
@@ -118,19 +118,24 @@ function addEngineer() {
 
 function addIntern() {
   inquirer
-  .prompt(internQuestions)
-  .then(answers => {
-    const intern = new Intern(
-      answers.internName,
-      answers.internID,
-      answers.internEmail,
-      answers.school,
-    );
-    teamMembersArray.push(intern);
-  })
-  .then(answers => {
-    addMember();
-  })
+    .prompt(internQuestions)
+    .then(answers => {
+      const intern = new Intern(
+        answers.internName,
+        answers.internID,
+        answers.internEmail,
+        answers.school,
+      );
+      teamMembersArray.push(intern);
+    })
+    .then(answers => {
+      addMember();
+    })
+}
+
+function writeToFile(fileName, data) {
+  fs.writeFile(fileName, data, (err) =>
+    err ? console.error(err) : console.log('HTML file successfully created!'));
 }
 
 function init() {

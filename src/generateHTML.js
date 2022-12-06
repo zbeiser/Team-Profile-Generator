@@ -1,4 +1,4 @@
-function genereateHTML(data) {
+function generateHTML(data) {
   return `<!DOCTYPE html>
   <html lang="en">
   <head>
@@ -9,14 +9,22 @@ function genereateHTML(data) {
     <title>My Team</title>
   </head>
   <body>
-    
+    ${generateCards(data)}
   </body>
   </html>
   `
 }
 
 function generateCards(data) {
-  
+  data.forEach(member => {
+    if (member.getRole() === 'Manager') {
+      //Card HTML
+    } else if (member.getRole() === 'Engineer') {
+      //Card HTML
+    } else if (member.getRole() === 'Intern') {
+      //Card HTML
+    }
+  })
 }
 
-module.exports = genereateHTML;
+module.exports = generateHTML;

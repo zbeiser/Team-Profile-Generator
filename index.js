@@ -98,15 +98,35 @@ function addMember() {
 }
 
 function addEngineer() {
-// inquirer prompt
-// create new engineer
-// call addMember
+  inquirer
+    .prompt(engineerQuestions)
+    .then(answers => {
+      const engineer = new Engineer(
+        answers.engineerName,
+        answers.engineerID,
+        answers.engineerEmail,
+        answers.github,
+      )
+    })
+    .then(answers => {
+      addMember();
+    })
 }
 
 function addIntern() {
-// inquirer prompt
-// create new intern
-// call addMember
+  inquirer
+  .prompt(internQuestions)
+  .then(answers => {
+    const intern = new Intern(
+      answers.internName,
+      answers.internID,
+      answers.internEmail,
+      answers.school,
+    )
+  })
+  .then(answers => {
+    addMember();
+  })
 }
 
 function init() {

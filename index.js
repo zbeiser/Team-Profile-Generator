@@ -1,6 +1,9 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const genereateHTML = require('./src/generateHTML.js');
+const genereateHTML = require('./src/generateHTML');
+const Manager = require('./lib/Manager')
+const Engineer = require('./lib/Engineer')
+const Intern = require('./lib/Intern')
 
 const managerQuestions = [
   {
@@ -79,3 +82,47 @@ const internQuestions = [
     type: 'input',
   },
 ]
+
+function addMember() {
+  inquirer
+    .prompt(addMemberMenu)
+    .then(answers => {
+      if (answers.addMember === 'Engineer') {
+        addEngineer();
+      } else if (answers.addMember === 'Intern') {
+        addIntern();
+      } else {
+        //generate the HTML
+      }
+    })
+}
+
+function addEngineer() {
+// inquirer prompt
+// create new engineer
+// call addMember
+}
+
+function addIntern() {
+// inquirer prompt
+// create new intern
+// call addMember
+}
+
+function init() {
+  inquirer
+    .prompt(managerQuestions)
+    .then(answers => {
+      const manager = new Manager(
+        answers.managerName,
+        answers.managerID,
+        answers.managerEmail,
+        answers.officeNumber,
+      );
+    })
+    .then(answers => {
+      addMember();
+    })
+}
+
+init();

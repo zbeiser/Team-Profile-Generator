@@ -94,7 +94,7 @@ function addMember() {
       } else if (answers.addMember === 'Intern') {
         addIntern();
       } else {
-        writeToFile('index.HTML', generateHTML(teamMembersArray));
+        writeToFile('./dist/index.HTML', generateHTML(teamMembersArray));
       }
     })
 }

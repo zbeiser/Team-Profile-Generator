@@ -9,6 +9,9 @@ function generateHTML(data) {
     <title>My Team</title>
   </head>
   <body>
+    <header>
+      <h1>My Team</h1>
+    </header>
     ${generateCards(data)}
   </body>
   </html>
@@ -16,15 +19,41 @@ function generateHTML(data) {
 }
 
 function generateCards(data) {
+  teamHTMLArray = [];
   data.forEach(member => {
     if (member.getRole() === 'Manager') {
-      //Card HTML
+      teamHTMLArray.push(`<section>
+      <h2>${member.getName()}</h2>
+      <p>${member.getRole()}</p>
+      <ul>
+        <li>${member.getId()}</li>
+        <li>${member.getEmail()}</li>
+        <li>${member.getOfficeNumber()}</li>
+      </ul>
+    </section>`)
     } else if (member.getRole() === 'Engineer') {
-      //Card HTML
+      teamHTMLArray.push(`<section>
+      <h2>${member.getName()}</h2>
+      <p>${member.getRole()}</p>
+      <ul>
+        <li>${member.getId()}</li>
+        <li>${member.getEmail()}</li>
+        <li>${member.getGithub()}</li>
+      </ul>
+    </section>`)
     } else if (member.getRole() === 'Intern') {
-      //Card HTML
+      teamHTMLArray.push(`<section>
+      <h2>${member.getName()}</h2>
+      <p>${member.getRole()}</p>
+      <ul>
+        <li>${member.getId()}</li>
+        <li>${member.getEmail()}</li>
+        <li>${member.getSchool()}</li>
+      </ul>
+    </section>`)
     }
   })
+  return teamHTMLArray.join('');
 }
 
 module.exports = generateHTML;

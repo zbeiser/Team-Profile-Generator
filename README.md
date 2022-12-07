@@ -23,6 +23,8 @@ Make sure you have node and Inquirer version 8.2.4 installed on your system.
 
 Open the application by navigating to the directory from your command line. Then make sure the dependencies are installed by executing "npm i". Next, you can run "node index.js" to start the application. You'll be presented with a series of input prompts for a team manager, then given the options to enter more input for either an intern or engineer. You can then exit the application from that same menu and the HTML file will be written to the "dist" folder of the directory.
 
+Video Walkthrough: https://drive.google.com/file/d/1RCKqUbQ-asb1oo3Tlu7sXuBHAsu2POeU/view?usp=share_link
+
 ## Contributing
 
 N/A

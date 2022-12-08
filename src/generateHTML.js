@@ -1,6 +1,7 @@
 function generateHTML(data) {
   return `<!DOCTYPE html>
   <html lang="en">
+
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,12 +9,16 @@ function generateHTML(data) {
     <link rel="stylesheet" type="text/css" href="./style.css">
     <title>My Team</title>
   </head>
+
   <body>
     <header>
       <h1>My Team</h1>
     </header>
-    ${generateCards(data)}
+    <div class="container">
+      ${generateCards(data)}
+    </div>
   </body>
+  
   </html>
   `
 }
@@ -26,9 +31,9 @@ function generateCards(data) {
       <h2>${member.getName()}</h2>
       <p>${member.getRole()}</p>
       <ul>
-        <li>${member.getId()}</li>
-        <li>${member.getEmail()}</li>
-        <li>${member.getOfficeNumber()}</li>
+        <li>ID: ${member.getId()}</li>
+        <li>Email: <a href="mailto:${member.getEmail()}">${member.getEmail()}</a></li>
+        <li>Office number: ${member.getOfficeNumber()}</li>
       </ul>
     </section>`)
     } else if (member.getRole() === 'Engineer') {
@@ -36,9 +41,9 @@ function generateCards(data) {
       <h2>${member.getName()}</h2>
       <p>${member.getRole()}</p>
       <ul>
-        <li>${member.getId()}</li>
-        <li>${member.getEmail()}</li>
-        <li>${member.getGithub()}</li>
+        <li>ID: ${member.getId()}</li>
+        <li>Email: <a href="mailto:${member.getEmail()}">${member.getEmail()}</a></li>
+        <li>GitHub: <a href="https://github.com/${member.getGithub()}">${member.getGithub()}</a></li>
       </ul>
     </section>`)
     } else if (member.getRole() === 'Intern') {
@@ -46,14 +51,14 @@ function generateCards(data) {
       <h2>${member.getName()}</h2>
       <p>${member.getRole()}</p>
       <ul>
-        <li>${member.getId()}</li>
-        <li>${member.getEmail()}</li>
-        <li>${member.getSchool()}</li>
+        <li>ID: ${member.getId()}</li>
+        <li>Email: <a href="mailto:${member.getEmail()}">${member.getEmail()}</a></li>
+        <li>School: ${member.getSchool()}</li>
       </ul>
     </section>`)
     }
   })
-  return teamHTMLArray.join('');
+  return teamHTMLArray.join('\r\n    ');
 }
 
 module.exports = generateHTML;

@@ -14,7 +14,7 @@ describe("Employee", () => {
       expect("id" in obj).toEqual(true);
     });
 
-    it("should return an object containing a 'email' property when called with the 'new' keyword", () => {
+    it("should return an object containing an 'email' property when called with the 'new' keyword", () => {
       const obj = new Employee();
 
       expect("email" in obj).toEqual(true);

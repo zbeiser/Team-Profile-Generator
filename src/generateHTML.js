@@ -43,7 +43,7 @@ function generateCards(data) {
       <ul>
         <li>ID: ${member.getId()}</li>
         <li>Email: <a href="mailto:${member.getEmail()}">${member.getEmail()}</a></li>
-        <li>GitHub: <a href="https://github.com/${member.getGithub()}">${member.getGithub()}</a></li>
+        <li>GitHub: <a href="https://github.com/${member.getGithub()}" target="_blank" rel="noopener noreferrer">${member.getGithub()}</a></li>
       </ul>
     </section>`)
     } else if (member.getRole() === 'Intern') {
